@@ -16,7 +16,6 @@ import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.MustacheFactory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Map;
@@ -38,21 +37,28 @@ public class ExecuteJSON extends CustomJavaAction<java.lang.String>
 	public java.lang.String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
+		if (this.TemplateString == null) {
+			throw new IllegalArgumentException("TemplateString can not be empty");
+		}
+		if (this.JSONString == null) {
+			throw new IllegalArgumentException("JSONString can not be empty");
+		}
 		StringReader templateStringReader = new StringReader(this.TemplateString);
 		StringWriter output = new StringWriter();
 		MustacheFactory mf = new DefaultMustacheFactory();
 		Mustache mustache = mf.compile(templateStringReader, "mxtemplate");
 
+		// convert the JSON string to a Hashmap
 		Map<String,Object> gsonMap = new HashMap<String,Object>();
 		GsonBuilder builder = new GsonBuilder();
 		Gson gson = builder.create();
-	
 		gsonMap = (Map<String,Object>) gson.fromJson(this.JSONString, gsonMap.getClass());
 		
 		//pass the hashmap instead of a class object
 		mustache.execute(output, gsonMap).flush();
-		return output.toString();		
 
+		// return the string
+		return output.toString();		
 		// END USER CODE
 	}
 

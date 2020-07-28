@@ -8,6 +8,8 @@ proxies
 .DS_Store
 *.svn
 .vscode/
+*.code-workspace
+.settings
 GPUCache
 src/javasource/objecthandling
 src/javasource/system
