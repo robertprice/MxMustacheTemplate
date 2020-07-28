@@ -101,6 +101,16 @@ public class ExecuteJSONWithPartials extends CustomJavaAction<java.lang.String>
 		protected HashMap<String, StringReader> partials = new HashMap<String, StringReader>();
 
 		public void addPartial(String name, String template) {
+			if (template == null) {
+				throw new IllegalArgumentException("template attribute can not be empty");
+			}
+			if (name == null) {
+				throw new IllegalArgumentException("name attribute can not be empty");
+			}
+			if (name.trim() == "") {
+				throw new IllegalArgumentException("name attribute can not be an empty string");
+			}
+	
 			StringReader tsreader = new StringReader(template);
 			partials.put(name, tsreader);
 		}
