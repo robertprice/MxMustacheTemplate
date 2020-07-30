@@ -104,13 +104,10 @@ public class FillTemplateJSON extends CustomJavaAction<java.lang.String>
 			if (template == null) {
 				throw new IllegalArgumentException("template attribute can not be empty");
 			}
-			if (name == null) {
+			if (name == null || name.trim().isEmpty()) {
 				throw new IllegalArgumentException("name attribute can not be empty");
 			}
-			if (name.trim() == "") {
-				throw new IllegalArgumentException("name attribute can not be an empty string");
-			}
-	
+
 			StringReader tsreader = new StringReader(template);
 			partials.put(name, tsreader);
 		}
