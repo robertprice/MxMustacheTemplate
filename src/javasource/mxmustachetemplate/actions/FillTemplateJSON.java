@@ -25,6 +25,9 @@ import java.util.HashMap;
 import java.util.UUID;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
+/**
+ * Populate a Mustache template string with data from a JSON string. Partial templates can be used, these are named and added in the PartialTemplateStrings list.
+ */
 public class FillTemplateJSON extends CustomJavaAction<java.lang.String>
 {
 	private java.lang.String JSONString;
