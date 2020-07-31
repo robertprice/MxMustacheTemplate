@@ -2,7 +2,19 @@
 
 ## Overview
 
-This Mendix module provides an implementation of the Mustache templating system for Mendix applications. 
+This Mendix module provides an implementation of the [Mustache](https://mustache.github.io/) templating system for Mendix applications. 
+
+## How to use the module
+
+### Installing
+
+The module can be installed directly from the App Store. Please assign the User security role to all roles that need to use this module.
+
+### A Simple Example.
+
+The Java Action FillTemplateJSON in the USE_ME folder takes a template String and JSON String returning a String with the resuling populated template.
+
+![A simple example microflow calling FillTemplateJSON](assets/simplemicroflow.png "How to call FillTemplateJSON")
 
 ## Bugs
 
@@ -15,6 +27,12 @@ This module can be found on GitHub at [https://github.com/robertprice/MxMustache
 Dependencies are managed using Maven.
 
 The module is based on the Java implementation and also uses GSON internally to map JSON to a Java Hashmap.
+
+### Unit Testing
+
+There are Unit Tests in the UnitTesting directory. These return a boolean that is true if the test passed, or false if not. This means there is loose coupling to the UnitTesting module and tests are only run if this is available. Please only commit if all tests pass.
+
+To run the unit tests install the Unit Testing and Object Handling modules from the Mendix App Store.
 
 ## See Also
 
