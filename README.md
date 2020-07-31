@@ -12,9 +12,30 @@ The module can be installed directly from the App Store. Please assign the User 
 
 ### A Simple Example.
 
-The Java Action FillTemplateJSON in the USE_ME folder takes a template String and JSON String returning a String with the resuling populated template.
+The Java Action FillTemplateJSON in the USE_ME folder takes a template String and JSON String returning a String with the resuling populated template. In this case, pass empty to the Partial template strings input.
 
 ![A simple example microflow calling FillTemplateJSON](assets/simplemicroflow.png "How to call FillTemplateJSON")
+
+The data being passed looks like this
+
+![JSON String data](assets/vJSONString.png)
+
+The template string looks like this
+
+![Template String](assets/vTemplateString.png)
+
+The data is passed to FillTemplateJSON like this
+
+![Calling FillTemplateJSON](assets/FillTemplateJSON.png)
+
+This will return the following String
+
+    <h1>Colors</h1>
+
+    <li><strong>red</strong></li>
+    <li>red</li>
+    <li>green</li>
+    <li>blue</li>
 
 ## Bugs
 
